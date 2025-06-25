@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 48eace46fd2c4454cabf44d1f58249f1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186233
+  packageName: Prototype Hero Demo - Pixel Art
+  packageVersion: 1.0
+  assetPath: Assets/Prototype Hero Demo - Pixel Art/Animations/Prototype Hero noSword/Landing_noSword.anim
+  uploadId: 409125

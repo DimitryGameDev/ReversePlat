@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1d4af8c325522f144a3ebdefb8d089f1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186233
+  packageName: Prototype Hero Demo - Pixel Art
+  packageVersion: 1.0
+  assetPath: Assets/Prototype Hero Demo - Pixel Art/Animations/Prototype Hero/PrototypeHero.controller
+  uploadId: 409125
