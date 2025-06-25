@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b8407dec84d04ac42a504b8ea72a3cce
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186233
+  packageName: Prototype Hero Demo - Pixel Art
+  packageVersion: 1.0
+  assetPath: Assets/Prototype Hero Demo - Pixel Art/Animations/Prototype Hero noSword/RunStart_noSword.anim
+  uploadId: 409125

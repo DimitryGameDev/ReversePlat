@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b49a3340797377b4ba528a9fa6c29f5c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 186233
+  packageName: Prototype Hero Demo - Pixel Art
+  packageVersion: 1.0
+  assetPath: Assets/Prototype Hero Demo - Pixel Art/Animations/Effects/RunStopDust.controller
+  uploadId: 409125
