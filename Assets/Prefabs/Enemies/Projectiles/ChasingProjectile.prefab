@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _destroyDelay: 5
-  _damage: 20
+  _projectileInfo: {fileID: 11400000, guid: c83f8d98cb5d28840990cfed9dde705f, type: 2}
 --- !u!212 &7055640021450388175
 SpriteRenderer:
   m_ObjectHideFlags: 0
