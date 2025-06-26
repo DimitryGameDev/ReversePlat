@@ -116,11 +116,11 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
-  _detectionDistance: 10
+  _detectionDistance: 7
   _projectileType: 0
   _pointA: {fileID: 9117659770293650814}
   _pointB: {fileID: 3281310838751527430}
-  _movementSpeed: 0.5
+  _movementSpeed: 1
 --- !u!114 &1633692119438483477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,8 +178,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1238144341
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 0.5849056, g: 0.47875026, b: 0.25051618, a: 1}

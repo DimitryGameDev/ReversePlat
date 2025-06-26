@@ -59,6 +59,8 @@ public class RangeEnemy : MonoBehaviour
     private Transform DetectPlayer()
     {
         Vector2 direction = _sprite.flipX ? Vector2.left : Vector2.right;
+        if (!_sprite.isVisible)
+            return null;
         RaycastHit2D hit = Physics2D.Raycast(_originTransform.position, direction,
              _detectionDistance, _layerMask);
         if (hit.collider != null)
