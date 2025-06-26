@@ -58,11 +58,14 @@ public class RangeEnemy : MonoBehaviour
     }
     private Transform DetectPlayer()
     {
-        Vector2 direction = _sprite.flipX ? Vector2.left : Vector2.right;
+        Vector2 direction = _originTransform.right;
         if (!_sprite.isVisible)
             return null;
-        RaycastHit2D hit = Physics2D.Raycast(_originTransform.position, direction,
-             _detectionDistance, _layerMask);
+        // RaycastHit2D hit = Physics2D.Raycast(_originTransform.position, direction,
+        //      _detectionDistance, _layerMask);
+
+        RaycastHit2D hit = Physics2D.BoxCast(_originTransform.position, new Vector2(1f, 1f), 0f,
+            direction, _detectionDistance, _layerMask);
         if (hit.collider != null)
         {
             return hit.collider.transform;
@@ -87,13 +90,14 @@ public class RangeEnemy : MonoBehaviour
             if (_targetPoint == _pointB)
             {
                 _targetPoint = _pointA;
-                _sprite.flipX = true;
+                _originTransform.rotation = Quaternion.Euler(0, 180, 0);
             }
             else
             {
                 _targetPoint = _pointB;
-                _sprite.flipX = false;
+                _originTransform.rotation = Quaternion.Euler(0, 0, 0);
             }
+            
         }
     }
 
