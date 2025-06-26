@@ -3,7 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float _destroyDelay = 5.0f;
-    [SerializeField] private float _damage = 20.0f;
+    [SerializeField] private int _damage = 20;
     [SerializeField] protected float _speed = 3.0f;
     protected Transform _originTransform;
     private void Start()
@@ -14,9 +14,9 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<IDamageable>(out IDamageable Damageable))
+        if (collision.gameObject.TryGetComponent<IPlayerDamageable>(out IPlayerDamageable damageable))
         {
-            Damageable.TakeDamage(_damage);
+            damageable.TakeDamage(_damage);
             Destroy(this.gameObject);
         }
     }
