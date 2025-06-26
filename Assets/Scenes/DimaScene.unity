@@ -882,6 +882,22 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7953872935334828980, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+      propertyPath: m_Size.x
+      value: 1.1295214
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953872935334828980, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2620993
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953872935334828980, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.012851238
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953872935334828980, guid: e481822248898d04e9808a3d3ca78e5a, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.69354963
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
