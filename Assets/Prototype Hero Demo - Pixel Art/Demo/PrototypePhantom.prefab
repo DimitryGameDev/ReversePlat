@@ -9,12 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5716250913848732368}
-  - component: {fileID: 6599387429202982214}
   - component: {fileID: 3672630916103946488}
   - component: {fileID: 8017114022593016401}
   - component: {fileID: 3205469115098526170}
   - component: {fileID: 4378339756726560316}
-  - component: {fileID: 9039234976861752836}
   - component: {fileID: 7362883923627963604}
   m_Layer: 0
   m_Name: PrototypePhantom
@@ -39,24 +37,6 @@ Transform:
   - {fileID: 3697952312495306595}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6599387429202982214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4869188189877349703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a60f39d280f172e44ab73cb24a06b940, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_maxSpeed: 4.5
-  m_jumpForce: 7.5
-  m_hideSword: 0
-  m_RunStopDust: {fileID: 7310271610845027193, guid: 39afca3c109b26049a80bc07593eb271, type: 3}
-  m_JumpDust: {fileID: 8935918012585647707, guid: 4a4123fbc8b39d441868897a71d2b2b1, type: 3}
-  m_LandingDust: {fileID: 9076098953984712191, guid: 0b745be9abb3a6d4dadd8705950196d1, type: 3}
 --- !u!95 &3672630916103946488
 Animator:
   serializedVersion: 7
@@ -207,22 +187,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.1295214, y: 1.2620993}
   m_EdgeRadius: 0
---- !u!114 &9039234976861752836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4869188189877349703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 257ee53d0ae0c434b87ed76adcb4b9f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  echoKey: 101
-  phantomPrefab: {fileID: 0}
-  runePrefab: {fileID: 5126507520524490402, guid: 87a06cfb971114c73bae3e978cebb174, type: 3}
-  freezeDuration: 5
 --- !u!114 &7362883923627963604
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class EchoRuneController : MonoBehaviour
         {
             if (currentPhantom != null)
                 return;
+            
             if (!hasMark)
             {
                 // первое нажатие - метка
