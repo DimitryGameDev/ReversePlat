@@ -105,8 +105,8 @@ GameObject:
   - component: {fileID: 3764271992053789189}
   - component: {fileID: 4041983829798186269}
   - component: {fileID: 7853426713638563735}
-  - component: {fileID: 7953872935334828980}
   - component: {fileID: 4012234666750525601}
+  - component: {fileID: 4552330868986740880}
   m_Layer: 0
   m_Name: PrototypeHero
   m_TagString: Player
@@ -265,8 +265,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &7953872935334828980
-BoxCollider2D:
+--- !u!114 &4012234666750525601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5126507520524490402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257ee53d0ae0c434b87ed76adcb4b9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  echoKey: 101
+  phantomPrefab: {fileID: 4869188189877349703, guid: a1097fd4aab52724cbb7406d0bceaaf4, type: 3}
+  runePrefab: {fileID: 5126507520524490402, guid: 87a06cfb971114c73bae3e978cebb174, type: 3}
+  freezeDuration: 5
+--- !u!70 &4552330868986740880
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -299,31 +315,6 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.03125, y: 0.71875}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 3.125, y: 2.5}
-    newSize: {x: 3.125, y: 2.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.5625, y: 1.3125}
-  m_EdgeRadius: 0
---- !u!114 &4012234666750525601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5126507520524490402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 257ee53d0ae0c434b87ed76adcb4b9f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  echoKey: 101
-  phantomPrefab: {fileID: 4869188189877349703, guid: a1097fd4aab52724cbb7406d0bceaaf4, type: 3}
-  runePrefab: {fileID: 5126507520524490402, guid: 87a06cfb971114c73bae3e978cebb174, type: 3}
-  freezeDuration: 5
+  m_Offset: {x: -0.030525595, y: 0.71591645}
+  m_Size: {x: 0.5648193, y: 1.3199428}
+  m_Direction: 0
