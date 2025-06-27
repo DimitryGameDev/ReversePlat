@@ -4,18 +4,23 @@ using UnityEngine;
 public class DamagingObject : MonoBehaviour
 {
     [SerializeField] private int _damage = 50;
-    [SerializeField] private float _applyDamageDelay = 2f;
+    [SerializeField] private float _applyDamageDelay = 0.5f;
+    [SerializeField] private float _damageForce = 5f;
     private bool _canApplyDamage = true;
     private IPlayerDamageable _playerDamageable;
+    private Vector2 _damageDirection;
+    private Rigidbody2D _targetRB;
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.TryGetComponent<IPlayerDamageable>(out IPlayerDamageable playerDamageable))
         {
             _playerDamageable = playerDamageable;
+            _damageDirection = collision.contacts[0].normal * -1;
+            _targetRB = collision.rigidbody;
             if (_canApplyDamage)
             {
-                _playerDamageable.TakeDamage(_damage);
-                StartCoroutine(WaitForApplyDamageDelay());
+                ApplyDamage();
             }
         }
     }
@@ -27,8 +32,7 @@ public class DamagingObject : MonoBehaviour
             {
                 if (_canApplyDamage)
                 {
-                    _playerDamageable.TakeDamage(_damage);
-                    StartCoroutine(WaitForApplyDamageDelay());
+                    ApplyDamage();
                 }
                 _playerDamageable = null;
             }
@@ -39,11 +43,15 @@ public class DamagingObject : MonoBehaviour
     {
         if (_playerDamageable != null && _canApplyDamage)
         {
-            _playerDamageable.TakeDamage(_damage);
-            StartCoroutine(WaitForApplyDamageDelay());
+            ApplyDamage();
         }
     }
-
+    private void ApplyDamage()
+    {
+        _playerDamageable.TakeDamage(_damage);
+        _targetRB.AddForce(_damageDirection * _damageForce, ForceMode2D.Impulse);
+        StartCoroutine(WaitForApplyDamageDelay());
+    }
     private IEnumerator WaitForApplyDamageDelay()
     {
         _canApplyDamage = false;
