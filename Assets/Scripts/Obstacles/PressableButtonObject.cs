@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PressableButtonObject : MonoBehaviour
 {
+    [SerializeField] private Door _assignedDoor;
     [SerializeField] private Color _pressColor = Color.gray;
     [SerializeField] private float _colorChangeDuration = 0.5f;
     private Color _originalColor;
@@ -20,6 +21,9 @@ public class PressableButtonObject : MonoBehaviour
     {
         if (!_isPressedOnce)
         {
+            if(_assignedDoor != null)
+                _assignedDoor.Open();
+            
             _isPressedOnce = true;
             StartCoroutine(FlashOnPressed());
         }
