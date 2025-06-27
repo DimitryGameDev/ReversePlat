@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class PlayerHealth : MonoBehaviour, IPlayerDamageable
+public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _maxHealth = 100;
     [SerializeField] private float _colorChangeDuration = 0.2f;
