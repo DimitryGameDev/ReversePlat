@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4096299932219503466}
   - component: {fileID: 4210655474100147033}
   - component: {fileID: 5692587709083937071}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 4552330868986740880}
   - component: {fileID: 318171671680507520}
   - component: {fileID: 6748354887871667248}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PrototypeHero
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286e5f945f3116a4aa7992f738287f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 4
   _colorChangeDuration: 0.2
   _damageColor: {r: 0.8627451, g: 0.30980393, b: 0.30980393, a: 1}
 --- !u!114 &5779919143759674799
@@ -364,7 +364,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6571403837113789107}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}

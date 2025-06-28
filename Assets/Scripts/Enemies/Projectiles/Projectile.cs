@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<IPlayerDamageable>(out IPlayerDamageable damageable))
+        if (collision.gameObject.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
             damageable.TakeDamage(_damage);
             Destroy(this.gameObject);

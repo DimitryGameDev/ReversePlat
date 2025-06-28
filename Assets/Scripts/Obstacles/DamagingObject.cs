@@ -7,15 +7,15 @@ public class DamagingObject : MonoBehaviour
     [SerializeField] private float _applyDamageDelay = 0.5f;
     [SerializeField] private float _damageForce = 5f;
     private bool _canApplyDamage = true;
-    private IPlayerDamageable _playerDamageable;
+    private IDamageable _damageable;
     private Vector2 _damageDirection;
     private Rigidbody2D _targetRB;
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.TryGetComponent<IPlayerDamageable>(out IPlayerDamageable playerDamageable))
+        if (collision.collider.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
-            _playerDamageable = playerDamageable;
+            _damageable = damageable;
             _damageDirection = collision.contacts[0].normal * -1;
             _targetRB = collision.rigidbody;
             if (_canApplyDamage)
@@ -26,29 +26,29 @@ public class DamagingObject : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.TryGetComponent<IPlayerDamageable>(out IPlayerDamageable playerDamageable))
+        if (collision.collider.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
-            if (_playerDamageable == playerDamageable)
+            if (_damageable == damageable)
             {
                 if (_canApplyDamage)
                 {
                     ApplyDamage();
                 }
-                _playerDamageable = null;
+                _damageable = null;
             }
         }
     }
 
     private void FixedUpdate()
     {
-        if (_playerDamageable != null && _canApplyDamage)
+        if (_damageable != null && _canApplyDamage)
         {
             ApplyDamage();
         }
     }
     private void ApplyDamage()
     {
-        _playerDamageable.TakeDamage(_damage);
+        _damageable.TakeDamage(_damage);
         _targetRB.AddForce(_damageDirection * _damageForce, ForceMode2D.Impulse);
         StartCoroutine(WaitForApplyDamageDelay());
     }
