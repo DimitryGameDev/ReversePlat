@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _topPoint: {fileID: 3461202356514379571}
   _bottomPoint: {fileID: 4697496417663248960}
-  _movementSpeed: 1
+  _movementSpeed: 3
   _damage: 1
   _triggerOffsetY: 0.3
 --- !u!61 &2166370845223570277

@@ -6,6 +6,7 @@ public class FireObstacle : MonoBehaviour
     [SerializeField] private Transform _topPoint;
     [SerializeField] private Transform _bottomPoint;
     [SerializeField] private float _movementSpeed = 1f;
+    [SerializeField] private float _applyDamageDelay = 1f;
     [SerializeField] private int _damage = 1;
     [SerializeField] private float _triggerOffsetY = 0.25f;
     private Collider2D _collider;
@@ -14,39 +15,72 @@ public class FireObstacle : MonoBehaviour
     private Coroutine _currentCoroutine = null;
     private bool _isMovingToTop;
     private Vector2 _targetPosition;
+    
+    
+    private bool _canApplyDamage = true;
+    private IDamageable _damageable;
     private void Start()
     {
         _originTransform = transform;
         _collider = GetComponent<Collider2D>();
+
         MoveToBottom();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        float yPos = collision.ClosestPoint(_originTransform.position).y;
-        yPos += _collider.bounds.size.y / 2;
-        Vector2 offsetPos;
-        if (_isMovingToTop)
+        if (collision.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
-            offsetPos = new Vector2(_originTransform.position.x, yPos + _triggerOffsetY);
-        }
-        else
-        {
+            _damageable = damageable;
+            if (_canApplyDamage)
+            {
+                ApplyDamage();
+            }
+            
+            if (_isMovingToTop)
+                return;
+ 
+            Vector2 offsetPos;
+            float yPos;
+            yPos = collision.transform.position.y + collision.bounds.size.y;
+            yPos += _collider.bounds.size.y / 2;
             offsetPos = new Vector2(_originTransform.position.x, yPos - _triggerOffsetY);
+
+            Debug.Log(offsetPos);
+            MoveToTriggerOffset(offsetPos);
+
         }
-        MoveToTriggerOffset(offsetPos);
+
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (_damageable != null && _canApplyDamage)
+            ApplyDamage();
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (_isMovingToTop)
+        if (collision.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
-            MoveToTop();
+            if (_damageable == damageable)
+            {
+                if (_canApplyDamage)
+                {
+                    ApplyDamage();
+                }
+                _damageable = null;
+            }
+
+            if (_isMovingToTop)
+            {
+                MoveToTop();
+            }
+            else
+            {
+                MoveToBottom();
+            }
         }
-        else
-        {
-            MoveToBottom();
-        }   
+
     }
 
     private void MoveToTop()
@@ -55,7 +89,8 @@ public class FireObstacle : MonoBehaviour
         _targetPosition = _topPoint.position;
         if (_currentCoroutine != null)
             StopCoroutine(_currentCoroutine);
-        _currentCoroutine = StartCoroutine(StartMovingToTop());
+        if(gameObject.activeInHierarchy)
+            _currentCoroutine = StartCoroutine(StartMovingToTop());
     }
 
     private void MoveToBottom()
@@ -64,7 +99,8 @@ public class FireObstacle : MonoBehaviour
         _targetPosition = _bottomPoint.position;
         if (_currentCoroutine != null)
             StopCoroutine(_currentCoroutine);
-        _currentCoroutine = StartCoroutine(StartMovingToBottom());
+        if(gameObject.activeInHierarchy)
+            _currentCoroutine = StartCoroutine(StartMovingToBottom());
 
     }
 
@@ -73,7 +109,8 @@ public class FireObstacle : MonoBehaviour
         _targetPosition = offsetPos;
         if (_currentCoroutine != null)
             StopCoroutine(_currentCoroutine);
-        _currentCoroutine = StartCoroutine(StartMovingToTriggerOffset());
+        if(gameObject.activeInHierarchy)
+            _currentCoroutine = StartCoroutine(StartMovingToTriggerOffset());
     }
 
     private IEnumerator StartMovingToTop()
@@ -107,7 +144,18 @@ public class FireObstacle : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
     }
-
+    private void ApplyDamage()
+    {
+        _damageable.TakeDamage(_damage);
+        if(gameObject.activeInHierarchy)
+            StartCoroutine(WaitForApplyDamageDelay());
+    }
+    private IEnumerator WaitForApplyDamageDelay()
+    {
+        _canApplyDamage = false;
+        yield return new WaitForSeconds(_applyDamageDelay);
+        _canApplyDamage = true;
+    }
 
 
     public void OnDrawGizmos()
