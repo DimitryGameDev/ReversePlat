@@ -46,7 +46,6 @@ public class FireObstacle : MonoBehaviour
             yPos += _collider.bounds.size.y / 2;
             offsetPos = new Vector2(_originTransform.position.x, yPos - _triggerOffsetY);
 
-            Debug.Log(offsetPos);
             MoveToTriggerOffset(offsetPos);
 
         }

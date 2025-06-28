@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Sensor_Prototype : MonoBehaviour {
-
+public class Sensor_Prototype : MonoBehaviour
+{
     private int m_ColCount = 0;
 
     private float m_DisableTimer;
@@ -38,4 +38,5 @@ public class Sensor_Prototype : MonoBehaviour {
     {
         m_DisableTimer = duration;
     }
+    
 }

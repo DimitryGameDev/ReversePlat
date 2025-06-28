@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4096299932219503466}
   - component: {fileID: 4210655474100147033}
   - component: {fileID: 5692587709083937071}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 4552330868986740880}
   - component: {fileID: 318171671680507520}
   - component: {fileID: 6748354887871667248}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PrototypeHero
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6571403837113789107}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}

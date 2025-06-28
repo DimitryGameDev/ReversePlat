@@ -16,17 +16,24 @@ public class HoldableButtonObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_assignedDoor != null)
-            _assignedDoor.Open();
+        if (collision.TryGetComponent<IDamageable>(out _))
+        {
+            if (_assignedDoor != null)
+                _assignedDoor.Open();
+            _spriteRenderer.color = _pressColor;
+        }
         
-        _spriteRenderer.color = _pressColor;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (_assignedDoor != null)
-            _assignedDoor.Close();
+        if (collision.TryGetComponent<IDamageable>(out _))
+        {
+            if (_assignedDoor != null)
+                    _assignedDoor.Close();
 
-        _spriteRenderer.color = _originalColor;
+            _spriteRenderer.color = _originalColor;
+        }
+
     }
 
 }
