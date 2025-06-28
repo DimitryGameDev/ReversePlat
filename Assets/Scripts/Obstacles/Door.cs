@@ -41,8 +41,12 @@ public class Door : MonoBehaviour
 
     private IEnumerator StartClosing()
     {
-        yield return null;
-        yield return new WaitForFixedUpdate();
+        while (Vector2.Distance(_originTransform.position, _bottomPoint.position) > 0.001f)
+        {
+            Vector2 newPos = Vector2.MoveTowards(_originTransform.position, _bottomPoint.position, Time.fixedDeltaTime * _movementSpeed);
+            _originTransform.position = newPos;
+            yield return new WaitForFixedUpdate();
+        }
     }
 
     public void OnDrawGizmos()

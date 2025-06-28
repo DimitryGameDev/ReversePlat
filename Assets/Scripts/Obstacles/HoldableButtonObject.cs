@@ -1,14 +1,12 @@
-using System.Collections;
 using UnityEngine;
 
 public class HoldableButtonObject : MonoBehaviour
 {
     [SerializeField] private Door _assignedDoor;
     [SerializeField] private Color _pressColor = Color.gray;
-    [SerializeField] private float _colorChangeDuration = 0.5f;
     private Color _originalColor;
     private SpriteRenderer _spriteRenderer;
-    private bool _isPressedOnce = false;
+
 
     private void Start()
     {
@@ -16,24 +14,19 @@ public class HoldableButtonObject : MonoBehaviour
         _originalColor = _spriteRenderer.color;
     }
 
-    //TODO: to change
-    // private void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     if (!_isPressedOnce)
-    //     {
-    //         if(_assignedDoor != null)
-    //             _assignedDoor.Open();
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (_assignedDoor != null)
+            _assignedDoor.Open();
+        
+        _spriteRenderer.color = _pressColor;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (_assignedDoor != null)
+            _assignedDoor.Close();
 
-    //         _isPressedOnce = true;
-    //         StartCoroutine(FlashOnPressed());
-    //     }
-    // }
+        _spriteRenderer.color = _originalColor;
+    }
 
-
-    // private IEnumerator FlashOnPressed()
-    // {
-    //     _spriteRenderer.color = _pressColor;
-    //     yield return new WaitForSeconds(_colorChangeDuration);
-    //     _spriteRenderer.color = _originalColor;
-    // }
 }

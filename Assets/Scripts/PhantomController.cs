@@ -11,7 +11,6 @@ public class PhantomController : MonoBehaviour
         lifetime = duration;
     
         var rb = GetComponent<Rigidbody2D>();
-        rb.bodyType = RigidbodyType2D.Static;
         StartCoroutine(FreezeAndDestroy());
     }
 
