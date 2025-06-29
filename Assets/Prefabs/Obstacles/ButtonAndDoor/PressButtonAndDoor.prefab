@@ -147,6 +147,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4584846868976135527, guid: 50641cc700c42844fa51c4c8e5cdd6ea, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.671894
+      objectReference: {fileID: 0}
+    - target: {fileID: 4584846868976135527, guid: 50641cc700c42844fa51c4c8e5cdd6ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7117499431164536711, guid: 50641cc700c42844fa51c4c8e5cdd6ea, type: 3}
       propertyPath: m_Name
       value: DoorContainer
