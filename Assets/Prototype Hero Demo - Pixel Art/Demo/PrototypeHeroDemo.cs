@@ -6,7 +6,6 @@ public class PrototypeHeroDemo : MonoBehaviour {
     [Header("Variables")]
     [SerializeField] float      m_maxSpeed = 4.5f;
     [SerializeField] float      m_jumpForce = 7.5f;
-    [SerializeField] bool       m_hideSword = false;
     [Header("Effects")]
     [SerializeField] GameObject m_RunStopDust;
     [SerializeField] GameObject m_JumpDust;
@@ -30,6 +29,9 @@ public class PrototypeHeroDemo : MonoBehaviour {
         m_audioSource = GetComponent<AudioSource>();
         m_audioManager = AudioManager_PrototypeHero.instance;
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Prototype>();
+        // Initialize grounded state on start
+        m_grounded = m_groundSensor.State();
+        m_animator.SetBool("IsGrounded", m_grounded);
     }
 
     // Update is called once per frame
@@ -42,14 +44,14 @@ public class PrototypeHeroDemo : MonoBehaviour {
         if (!m_grounded && m_groundSensor.State())
         {
             m_grounded = true;
-            m_animator.SetBool("Grounded", m_grounded);
+            m_animator.SetBool("IsGrounded", m_grounded);
         }
 
         //Check if character just started falling
         if (m_grounded && !m_groundSensor.State())
         {
             m_grounded = false;
-            m_animator.SetBool("Grounded", m_grounded);
+            m_animator.SetBool("IsGrounded", m_grounded);
         }
 
         // -- Handle input and movement --
@@ -70,13 +72,16 @@ public class PrototypeHeroDemo : MonoBehaviour {
         // Swap direction of sprite depending on move direction
         if (inputRaw > 0)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x);
+            transform.localScale = scale;
             m_facingDirection = 1;
         }
-            
         else if (inputRaw < 0)
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            Vector3 scale = transform.localScale;
+            scale.x = -Mathf.Abs(scale.x);
+            transform.localScale = scale;
             m_facingDirection = -1;
         }
      
@@ -85,31 +90,24 @@ public class PrototypeHeroDemo : MonoBehaviour {
         // Set movement
         m_body2d.linearVelocity = new Vector2(inputX * m_maxSpeed * SlowDownSpeed, m_body2d.linearVelocity.y);
 
+        // Update Speed parameter for movement animations
+        m_animator.SetFloat("Speed", Mathf.Abs(inputX));
+
         // Set AirSpeed in animator
-        m_animator.SetFloat("AirSpeedY", m_body2d.linearVelocity.y);
 
-        // Set Animation layer for hiding sword
-        int boolInt = m_hideSword ? 1 : 0;
-        m_animator.SetLayerWeight(1, boolInt);
 
-        // -- Handle Animations --
-        //Jump
-        if (Input.GetButtonDown("Jump") && m_grounded && m_disableMovementTimer < 0.0f)
+       
+
+      
+        if (Input.GetButtonDown("Jump") && m_grounded)
         {
+            Debug.Log(">>> Jump button pressed");
             m_animator.SetTrigger("Jump");
             m_grounded = false;
-            m_animator.SetBool("Grounded", m_grounded);
+            m_animator.SetBool("IsGrounded", m_grounded);
             m_body2d.linearVelocity = new Vector2(m_body2d.linearVelocity.x, m_jumpForce);
             m_groundSensor.Disable(0.2f);
         }
-
-        //Run
-        else if(m_moving)
-            m_animator.SetInteger("AnimState", 1);
-
-        //Idle
-        else
-            m_animator.SetInteger("AnimState", 0);
     }
 
     // Function used to spawn a dust effect

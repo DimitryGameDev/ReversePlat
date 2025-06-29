@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1254912165905175345}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.091, z: 0}
+  m_LocalPosition: {x: 0.17, y: -0.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -125,7 +125,7 @@ Transform:
   m_GameObject: {fileID: 5126507520524490402}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.296, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -162,7 +162,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxSpeed: 4.5
   m_jumpForce: 7.5
-  m_hideSword: 0
   m_RunStopDust: {fileID: 7310271610845027193, guid: 39afca3c109b26049a80bc07593eb271, type: 3}
   m_JumpDust: {fileID: 8935918012585647707, guid: 4a4123fbc8b39d441868897a71d2b2b1, type: 3}
   m_LandingDust: {fileID: 9076098953984712191, guid: 0b745be9abb3a6d4dadd8705950196d1, type: 3}
@@ -176,7 +175,7 @@ Animator:
   m_GameObject: {fileID: 5126507520524490402}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1d4af8c325522f144a3ebdefb8d089f1, type: 2}
+  m_Controller: {fileID: 9100000, guid: e00234beddb1b49df950d74f42f0c39b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -232,7 +231,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 300ea1a5869382b43bf6149aba92c4db, type: 3}
+  m_Sprite: {fileID: 937524813520098965, guid: 6212ade323e404b37beb91fc626dad22, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -320,8 +319,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.030525595, y: 0.71591645}
-  m_Size: {x: 0.5648193, y: 1.3199428}
+  m_Offset: {x: 0.108531594, y: 0.015399516}
+  m_Size: {x: 0.76708424, y: 1.7922417}
   m_Direction: 0
 --- !u!114 &318171671680507520
 MonoBehaviour:
@@ -340,8 +339,8 @@ MonoBehaviour:
   attackDamage: 25
   hitLayers:
     serializedVersion: 2
-    m_Bits: 0
-  attacksPerSecond: 1
+    m_Bits: 128
+  attacksPerSecond: 2
 --- !u!114 &6748354887871667248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,7 +379,7 @@ Transform:
   m_GameObject: {fileID: 8330478706564194578}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.41, y: 0.85, z: 0}
+  m_LocalPosition: {x: 0.64, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -24,7 +24,7 @@ public class MeleeAttack : MonoBehaviour
         if (Time.time < nextAttackTime) return;
             nextAttackTime = Time.time + 1f / attacksPerSecond;
        
-        //animator.SetTrigger("Attack");
+        animator.SetTrigger("Attack");
        
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(
@@ -42,4 +42,3 @@ public class MeleeAttack : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
-

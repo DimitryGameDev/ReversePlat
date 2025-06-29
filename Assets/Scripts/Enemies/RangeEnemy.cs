@@ -23,6 +23,7 @@ public class RangeEnemy : MonoBehaviour
     private Transform _originTransform;
     private Rigidbody2D _rb;
     private SpriteRenderer _sprite;
+    private Animator _animator;
     // private bool _isNextProjectile = true;
     private void Start()
     {
@@ -40,6 +41,7 @@ public class RangeEnemy : MonoBehaviour
         _originTransform = transform;
         
         _sprite = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
         _targetPoint = _pointB;
         _rb = GetComponent<Rigidbody2D>();
     }
@@ -78,6 +80,7 @@ public class RangeEnemy : MonoBehaviour
         if (_weapon.IsReloaded)
         {
             _weapon.LaunchProjectileTo(_detectedPlayer);
+            _animator.SetTrigger("Attack");
         }
     }
 
