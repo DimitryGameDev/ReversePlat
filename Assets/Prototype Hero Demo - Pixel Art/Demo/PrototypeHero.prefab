@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5692587709083937071}
   m_Layer: 6
   m_Name: GroundSensor
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,12 +246,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 937524813520098965, guid: 6212ade323e404b37beb91fc626dad22, type: 3}
+  m_Sprite: {fileID: 937524813520098965, guid: fbb144cea3556c64a91a909b4f417ee0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.125, y: 2.5}
+  m_Size: {x: 0.90625, y: 1.78125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 6571403837113789107}
   m_Layer: 6
   m_Name: AttackPoint
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

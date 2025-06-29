@@ -10,7 +10,9 @@ public class SimpleProjectile : Projectile, IProjectable
     }
     public void SetTargetTo(Transform target)
     {
-        float height = target.GetComponent<Collider2D>().bounds.size.y;
-        _direction = (target.position - transform.position + new Vector3(0f, height / 2, 0)).normalized;
+        //float height = target.GetComponent<Collider2D>().bounds.size.y;
+        Vector3 offset = Vector2.zero;
+        // offset = new Vector3(0f, height / 2, 0);
+        _direction = (target.position - transform.position + offset).normalized;
     }
 }
