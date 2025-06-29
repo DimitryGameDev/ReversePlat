@@ -20,5 +20,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             _health = 0;
         }
         Debug.Log("Enemy HP is " + _health);
+        // If health has dropped to zero or below, remove the enemy from the scene
+        if (_health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
