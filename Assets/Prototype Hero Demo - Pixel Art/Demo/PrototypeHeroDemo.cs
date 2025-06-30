@@ -10,7 +10,9 @@ public class PrototypeHeroDemo : MonoBehaviour {
     [SerializeField] GameObject m_RunStopDust;
     [SerializeField] GameObject m_JumpDust;
     [SerializeField] GameObject m_LandingDust;
-
+    [SerializeField] private AudioClip[] footstepClips;  // массив из трёх звуков шагов
+    [SerializeField] private AudioClip  jumpClip; 
+    
     private Animator            m_animator;
     private Rigidbody2D         m_body2d;
     private Sensor_Prototype    m_groundSensor;
@@ -20,6 +22,8 @@ public class PrototypeHeroDemo : MonoBehaviour {
     private bool                m_moving = false;
     private int                 m_facingDirection = 1;
     private float               m_disableMovementTimer = 0.0f;
+    // Tracks which footstep sound to play next
+    private int m_footstepIndex = 0;
 
     // Use this for initialization
     void Start ()
@@ -103,6 +107,7 @@ public class PrototypeHeroDemo : MonoBehaviour {
         {
             Debug.Log(">>> Jump button pressed");
             m_animator.SetTrigger("Jump");
+            m_audioSource.PlayOneShot(jumpClip);
             m_grounded = false;
             m_animator.SetBool("IsGrounded", m_grounded);
             m_body2d.linearVelocity = new Vector2(m_body2d.linearVelocity.x, m_jumpForce);
@@ -136,11 +141,16 @@ public class PrototypeHeroDemo : MonoBehaviour {
         SpawnDustEffect(m_RunStopDust, dustXOffset);
     }
 
-    void AE_footstep()
-    {
-        m_audioManager.PlaySound("Footstep");
+    void PlayFootstep() {
+        // Play the next footstep sound in sequence
+        if (m_grounded)
+        {
+            var clip = footstepClips[m_footstepIndex];
+            m_audioSource.PlayOneShot(clip);
+            m_footstepIndex = (m_footstepIndex + 1) % footstepClips.Length;
+        }
+       
     }
-
     void AE_Jump()
     {
         m_audioManager.PlaySound("Jump");
